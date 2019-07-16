@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Typist from "react-typist";
 import clsx from "clsx";
 import { useSpring, animated } from "react-spring";
-
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles(theme => ({
   typoCenter: {
@@ -14,13 +15,33 @@ const useStyles = makeStyles(theme => ({
   marginTopBlock: {
     display: "block",
     marginTop: "200px"
+  },
+  marginTopBlockMobile: {
+    display: "block",
+    marginTop: "20px"
+  },
+  marginLeft: {
+    marginLeft: "5px"
+  },
+  staticHeight1: {
+    height: "10vh"
+  },
+  staticHeight2: {
+    height: "30vh"
+  },
+  staticHeight1Mobile: {
+    height: "30vh"
+  },
+  staticHeight2Mobile: {
+    height: "20vh"
   }
 }));
 
-export default function IntroAnimation() {
+export default function IntroAnimation(props) {
   const [count, setCount] = useState(6);
   const [finished, setFinished] = useState(false);
   const classes = useStyles();
+  const mobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     let timer1 = setInterval(() => setCount(count => count - 1), 1000);
@@ -52,7 +73,10 @@ export default function IntroAnimation() {
           <Typist
             avgTypingDelay={20}
             cursor={{ show: false }}
-            className={classes.typoCenter}
+            className={clsx(
+              classes.typoCenter,
+              mobile ? classes.staticHeight1Mobile : classes.staticHeight1
+            )}
           >
             <Typography variant="h4" gutterBottom>
               &lt;Head>&#123;`$&#123;firstName&#125;
@@ -64,7 +88,10 @@ export default function IntroAnimation() {
             </Typography>
           </Typist>
           <Typist
-            className={classes.typoCenter}
+            className={clsx(
+              classes.typoCenter,
+              mobile ? classes.staticHeight2Mobile : classes.staticHeight2
+            )}
             cursor={{ show: false }}
             avgTypingDelay={20}
             startDelay={1000}
@@ -82,9 +109,19 @@ export default function IntroAnimation() {
           </Typist>
           <Typography
             variant="body2"
-            className={clsx(classes.typoCenter, classes.marginTopBlock)}
+            className={clsx(
+              classes.typoCenter,
+              mobile ? classes.marginTopBlockMobile : classes.marginTopBlock
+            )}
           >
             Intro ends in {count} seconds
+            <Link
+              href="#"
+              onClick={() => props.onSkip && props.onSkip()}
+              className={classes.marginLeft}
+            >
+              Skip
+            </Link>
           </Typography>
         </animated.div>
       </Grid>

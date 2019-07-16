@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Index() {
   const [showIntro, setShowIntro] = useState(true);
+  const [skipped, setSkipped] = useState(false);
 
   const classes = useStyles();
   useEffect(() => {
@@ -20,8 +21,8 @@ export default function Index() {
       clearTimeout(timer1);
     };
   }, []);
-  if (showIntro) {
-    return <IntroAnimation />;
+  if (showIntro && !skipped) {
+    return <IntroAnimation onSkip={() => setSkipped(true)} />;
   }
   return (
     <div className={classes.root}>

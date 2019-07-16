@@ -1,8 +1,31 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
-const Title = styled.h1`
-  font-size: 50px;
-`;
+import DrawerAppBarLayout from "../components/DrawerAppBarLayout";
+import IntroAnimation from "../components/IntroAnimation";
 
-export default () => <Title>My page</Title>;
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex"
+  }
+}));
+
+export default function Index() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  const classes = useStyles();
+  useEffect(() => {
+    const timer1 = setTimeout(() => setShowIntro(false), 6500);
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, []);
+  if (showIntro) {
+    return <IntroAnimation />;
+  }
+  return (
+    <div className={classes.root}>
+      <DrawerAppBarLayout>a</DrawerAppBarLayout>
+    </div>
+  );
+}

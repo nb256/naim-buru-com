@@ -26,7 +26,8 @@
     "babel-plugin-styled-components": "^1.8.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "next-images": "^1.1.2"
   },
   "license": "ISC"
 }

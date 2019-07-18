@@ -21,7 +21,8 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    width: "100%"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -139,7 +140,7 @@ export default function MiniDrawer(props) {
               className={clsx(classes.typoWithMarginLeft)}
             >
               <Typography variant="body2" noWrap>
-                Fullstack Developer
+                Full Stack Developer
               </Typography>
             </Hidden>
           </Toolbar>

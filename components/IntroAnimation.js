@@ -104,7 +104,7 @@ export default function IntroAnimation(props) {
             </Typography>
             <Typist.Backspace count={43} delay={1000} />
             <Typography variant="h4" gutterBottom>
-              Fullstack Developer
+              Full Stack Developer
             </Typography>
           </Typist>
           <Typography

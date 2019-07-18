@@ -5,7 +5,10 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import WorkIcon from "@material-ui/icons/Work";
+import CreateIcon from "@material-ui/icons/Create";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 import MailIcon from "@material-ui/icons/Mail";
 import Divider from "@material-ui/core/Divider";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -15,85 +18,11 @@ import Link from "next/link";
 import github from "../media/images/github.svg";
 import linkedin from "../media/images/linkedin.svg";
 
-const Index = () => (
-  <div>
-    <Link href="/about">
-      HomeIcon
-      <a>About Page</a>
-    </Link>
-    <p>Hello Next.js</p>
-  </div>
-);
+// href = "https://calendly.com/naimburu"
+// target = "_blank"
+// rel = "noopener"
+// title = "Schedule an online meeting with me"
 
-{
-  /* <SocialLinks>
-                 
-                    <animated.div
-                        className="card3"
-                        style={{ transform: props.xy.interpolate(trans3) }}
-                    >
-                        <SocialLink
-                            href="mailto:nbur4u@gmail.com"
-                            target="_top"
-                            title="Send an email to me (nbur4u@gmail.com)"
-                        >
-                            <SocialLinkImage src={mail} />
-                        </SocialLink>
-                    </animated.div>
-                    <animated.div
-                        className="card4"
-                        style={{ transform: props.xy.interpolate(trans4) }}
-                    >
-                        <SocialLink
-                            href="https://calendly.com/naimburu"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="Schedule an online meeting with me"
-                        >
-                            <SocialLinkImage src={calendar} />
-                        </SocialLink>
-                    </animated.div>
-                </SocialLinks>
-                <SocialLinksMob>
-                  
-
-                    <SocialLink
-                        href="mailto:nbur4u@gmail.com"
-                        target="_top"
-                        title="Send an email to me (nbur4u@gmail.com)"
-                    >
-                        <SocialLinkImage src={mail} />
-                    </SocialLink>
-
-                    <SocialLink
-                        href="https://calendly.com/naimburu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Schedule an online meeting with me"
-                    >
-                        <SocialLinkImage src={calendar} />
-                    </SocialLink>
-                </SocialLinksMob> */
-}
-
-const SocialLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 10px;
-  width: 100%;
-`;
-
-const SocialLinksMob = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 10px;
-  width: 100%;
-  @media (min-width: 601px) {
-    display: none;
-  }
-`;
 const SocialLink = styled.a`
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
@@ -116,6 +45,7 @@ export default function Menu({ open }) {
       </Tooltip>
     );
   };
+
   return (
     <>
       <List>
@@ -131,7 +61,7 @@ export default function Menu({ open }) {
         {renderWithTooltip(
           <ListItem button>
             <ListItemIcon>
-              <HomeIcon />
+              <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Projects" />
           </ListItem>,
@@ -140,21 +70,23 @@ export default function Menu({ open }) {
         {renderWithTooltip(
           <ListItem button>
             <ListItemIcon>
-              <HomeIcon />
+              <WorkIcon />
             </ListItemIcon>
             <ListItemText primary="Work Experience" />
           </ListItem>,
           "Work experience"
         )}
-        {renderWithTooltip(
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Blog" />
-          </ListItem>,
-          "Blog posts"
-        )}
+        <Link href="/blogposts">
+          {renderWithTooltip(
+            <ListItem button>
+              <ListItemIcon>
+                <CreateIcon />
+              </ListItemIcon>
+              <ListItemText primary="Blog" />
+            </ListItem>,
+            "Blog posts"
+          )}
+        </Link>
       </List>
       <Divider />
       <List>
@@ -212,7 +144,7 @@ export default function Menu({ open }) {
           >
             <ListItem button>
               <ListItemIcon>
-                <MailIcon />
+                <FileCopyIcon />
               </ListItemIcon>
               <ListItemText primary="Resume" />
             </ListItem>{" "}

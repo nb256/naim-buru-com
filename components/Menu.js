@@ -50,33 +50,39 @@ export default function Menu({ open }) {
     <>
       <List>
         {renderWithTooltip(
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>,
+          <SocialLink href="#home">
+            <ListItem button>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>{" "}
+          </SocialLink>,
           "Home"
         )}
         {renderWithTooltip(
-          <ListItem button>
-            <ListItemIcon>
-              <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Projects" />
-          </ListItem>,
+          <SocialLink href="#projects">
+            <ListItem button>
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Projects" />
+            </ListItem>{" "}
+          </SocialLink>,
           "Projects"
         )}
         {renderWithTooltip(
-          <ListItem button>
-            <ListItemIcon>
-              <WorkIcon />
-            </ListItemIcon>
-            <ListItemText primary="Work Experience" />
-          </ListItem>,
+          <SocialLink href="#work">
+            <ListItem button>
+              <ListItemIcon>
+                <WorkIcon />
+              </ListItemIcon>
+              <ListItemText primary="Work Experience" />
+            </ListItem>
+          </SocialLink>,
           "Work experience"
         )}
-        <Link href="/blogposts">
+        {/* <Link href="/blogposts">
           {renderWithTooltip(
             <ListItem button>
               <ListItemIcon>
@@ -86,7 +92,18 @@ export default function Menu({ open }) {
             </ListItem>,
             "Blog posts"
           )}
-        </Link>
+        </Link> */}
+        {renderWithTooltip(
+          <SocialLink href="#blogposts">
+            <ListItem button>
+              <ListItemIcon>
+                <CreateIcon />
+              </ListItemIcon>
+              <ListItemText primary="Blog" />
+            </ListItem>
+          </SocialLink>,
+          "Blog posts"
+        )}
       </List>
       <Divider />
       <List>

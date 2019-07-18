@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import DrawerAppBarLayout from "../components/DrawerAppBarLayout";
 import IntroAnimation from "../components/IntroAnimation";
+import AboutSection from "../components/AboutSection";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,12 +22,16 @@ export default function Index() {
       clearTimeout(timer1);
     };
   }, []);
-  if (showIntro && !skipped) {
+
+  // disable intro for development
+  if (process.env.NODE_ENV === "production" && showIntro && !skipped) {
     return <IntroAnimation onSkip={() => setSkipped(true)} />;
   }
   return (
     <div className={classes.root}>
-      <DrawerAppBarLayout>a</DrawerAppBarLayout>
+      <DrawerAppBarLayout>
+        <AboutSection />
+      </DrawerAppBarLayout>
     </div>
   );
 }

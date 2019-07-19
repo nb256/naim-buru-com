@@ -154,9 +154,8 @@ export default function Menu({ open }) {
         )}
         {renderWithTooltip(
           <SocialLink
-            //   s3 resume public link
-            //   href="mailto:nbur4u@gmail.com"
-            target="_top"
+            href="https://naim-public.s3.amazonaws.com/CV-Europass-20190719-Buru-EN.pdf"
+            target="_blank"
             rel="noopener"
           >
             <ListItem button>

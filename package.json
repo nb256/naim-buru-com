@@ -25,7 +25,8 @@
     "react-scrollable-anchor": "^0.6.1",
     "react-spring": "^8.0.27",
     "react-typist": "^2.0.5",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "cross-env": "^5.2.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",

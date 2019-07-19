@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+import { useSpring, animated } from "react-spring";
+
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -109,69 +111,75 @@ export default function MiniDrawer(props) {
   function handleDrawerClose() {
     setOpen(false);
   }
-
+  const fadeInSpring = useSpring({
+    opacity: 1,
+    width: "100%",
+    from: { opacity: 0 }
+  });
   return (
-    <div className={classes.root}>
-      <HideOnScroll {...props}>
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-              Naim Buru
-            </Typography>
-            <Hidden
-              implementation="css"
-              xsDown={true}
-              className={clsx(classes.typoWithMarginLeft)}
-            >
-              <Typography variant="body2" noWrap>
-                Full Stack Developer
+    <animated.div style={fadeInSpring}>
+      <div className={classes.root}>
+        <HideOnScroll {...props}>
+          <AppBar
+            position="fixed"
+            className={clsx(classes.appBar, {
+              [classes.appBarShift]: open
+            })}
+          >
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, {
+                  [classes.hide]: open
+                })}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap>
+                Naim Buru
               </Typography>
-            </Hidden>
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open
-        })}
-        classes={{
-          paper: clsx({
+              <Hidden
+                implementation="css"
+                xsDown={true}
+                className={clsx(classes.typoWithMarginLeft)}
+              >
+                <Typography variant="body2" noWrap>
+                  Full Stack Developer
+                </Typography>
+              </Hidden>
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open
-          })
-        }}
-        open={open}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
-            {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <Menu open={open} />
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {props.children || ""}
-      </main>
-    </div>
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open
+            })
+          }}
+          open={open}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
+              {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </div>
+          <Divider />
+          <Menu open={open} />
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          {props.children || ""}
+        </main>
+      </div>
+    </animated.div>
   );
 }

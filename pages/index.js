@@ -16,6 +16,7 @@ export default function Index() {
   const [skipped, setSkipped] = useState(false);
 
   const classes = useStyles();
+
   useEffect(() => {
     const timer1 = setTimeout(() => setShowIntro(false), 6500);
     return () => {

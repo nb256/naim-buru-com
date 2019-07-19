@@ -77,14 +77,14 @@ class MyDocument extends Document {
           <NextScript />
           {/* We only want to add the scripts if in production */}
           {isProduction && (
-            <Fragment>
+            <React.Fragment>
               <script
                 async
                 src="https://www.googletagmanager.com/gtag/js?id=UA-20198152-2"
               />
               {/* We call the function above to inject the contents of the script tag */}
               <script dangerouslySetInnerHTML={this.setGoogleTags()} />{" "}
-            </Fragment>
+            </React.Fragment>
           )}
         </body>
       </html>

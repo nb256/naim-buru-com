@@ -57,11 +57,16 @@ const CardDetails = styled.div`
 
 const CardImage = styled.img`
   width: 30%;
+  border-radius: 4px;
+
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
   @media (min-width: 651px) {
     flex: 1;
   }
   @media (max-width: 650px) {
     width: 100%;
+    margin-bottom: 10px;
   }
   padding: 15px;
   object-fit: contain;
@@ -99,7 +104,7 @@ export default function Project({ project }) {
 
         <div>
           {project.codelink && (
-            <CleanAnchor href={project.codelink}>
+            <CleanAnchor href={project.codelink} target="_blank" rel="noopener">
               <Button
                 variant="contained"
                 color="primary"
@@ -112,7 +117,7 @@ export default function Project({ project }) {
             </CleanAnchor>
           )}
           {project.demolink && (
-            <CleanAnchor href={project.demolink}>
+            <CleanAnchor href={project.demolink} target="_blank" rel="noopener">
               <Button
                 variant="contained"
                 color="primary"

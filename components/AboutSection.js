@@ -15,7 +15,7 @@ const projectsmock = [
   {
     name: "This site",
     image: "https://naim-public.s3.amazonaws.com/naimburu.png",
-    description: "My personal portfolio",
+    description: "My server-side rendered personal portfolio. ",
     codelink: "https://github.com/nb256/naim-buru-com",
     date: new Date(2019, 7, 19).toISOString(),
     technologies: [
@@ -25,25 +25,45 @@ const projectsmock = [
       "styled-components",
       "material-ui",
       "jest",
-      "enzyme"
+      "enzyme",
+      "aws ec2"
     ]
   },
   {
     name: "3d image galery with react and three.js",
     image: "https://naim-public.s3.amazonaws.com/threejs2.png",
     description:
-      "Navigate through an animated 3d scene with three.js orbit controls",
+      "Navigate through an animated 3d scene with three.js orbit controls.",
     demolink: "https://nb256-threejs-example.herokuapp.com/",
     codelink: "https://github.com/nb256/threejs-example",
     date: new Date(2019, 4, 23).toISOString(),
     technologies: ["react", "react-spring", "three", "react-three-fiber"]
+  },
+
+  {
+    name: "Talentra.net",
+    image: "https://naim-public.s3.amazonaws.com/talentra2.png",
+    description:
+      "Promotional site for a job consultancy company. ( Codes are unavailable because of NDA)",
+    demolink: "https://talentra.net",
+    date: new Date(2018, 10, 1).toISOString(),
+    technologies: [
+      "react",
+      "redux",
+      "styled-components",
+      "redux-thunk",
+      "node.js",
+      "express",
+      "mongodb",
+      "heroku"
+    ]
   },
   {
     name: "React-redux based kanban board application",
     image: "https://naim-public.s3.amazonaws.com/kanbanello.png",
     description:
       "Drag and drop cards across columns. Import and export redux application state. Persist redux store to LocalStorage on page refreshes.",
-    demolink: "dmck sadasdf as dfasf jdfkasjd fkasjdfkasdkfaj sdfkasdmck sad",
+    demolink: "https://kanbanelloo-4e0ec.firebaseapp.com/",
     codelink: "https://github.com/nb256/kanbanello",
     date: new Date(2017, 7, 1).toISOString(),
     technologies: ["react", "redux", "w3.css", "webpack", "babel"]

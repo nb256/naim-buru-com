@@ -82,7 +82,6 @@ const ButtonIcon = styled.img`
 
 export default function Project({ project }) {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <CardContainer>

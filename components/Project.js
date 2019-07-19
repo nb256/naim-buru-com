@@ -98,30 +98,34 @@ export default function Project({ project }) {
         <Box m={2} />
 
         <div>
-          <CleanAnchor href={project.codelink}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className={classes.button}
-            >
-              <ButtonIcon src={GithubIcon} />
-              Codes
-            </Button>
-          </CleanAnchor>
-          <CleanAnchor href={project.demolink}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className={classes.button}
-            >
-              <ExitToAppIcon
-                className={clsx(classes.leftIcon, classes.iconSmall)}
-              />
-              Demo
-            </Button>
-          </CleanAnchor>
+          {project.codelink && (
+            <CleanAnchor href={project.codelink}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className={classes.button}
+              >
+                <ButtonIcon src={GithubIcon} />
+                Codes
+              </Button>
+            </CleanAnchor>
+          )}
+          {project.demolink && (
+            <CleanAnchor href={project.demolink}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                className={classes.button}
+              >
+                <ExitToAppIcon
+                  className={clsx(classes.leftIcon, classes.iconSmall)}
+                />
+                Demo
+              </Button>
+            </CleanAnchor>
+          )}
         </div>
         <div>
           {project.technologies &&

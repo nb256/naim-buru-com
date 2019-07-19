@@ -11,6 +11,7 @@ import Box from "@material-ui/core/Box";
 
 import Project from "./Project";
 import Work from "./Work";
+import BlogPost from "./BlogPost";
 import { projectsMock, worksMock, blogPostsMock } from "../lib/mock-data";
 
 const useStyles = makeStyles(theme => ({
@@ -72,7 +73,7 @@ export default function AboutSection() {
         <ScrollableAnchor id={"projects"}>
           <Box m={6} />
         </ScrollableAnchor>
-        <Box m={6} />
+        <Box m={2} />
         <Typography variant="h3">Projects</Typography>
         <Box m={2} />
         <Divider />
@@ -96,7 +97,7 @@ export default function AboutSection() {
         <Typography variant="h3">Work</Typography>
         <Box m={2} />
         <Divider />
-        <Box m={6} />
+        <Box m={2} />
         {worksMock.map((work, index) => (
           <Work key={index} work={work} />
         ))}
@@ -110,10 +111,11 @@ export default function AboutSection() {
         <Typography variant="h3">Blog Posts</Typography>
         <Box m={2} />
         <Divider />
+        <Box m={2} />
+        {blogPostsMock.map((blogPost, index) => (
+          <BlogPost key={index} blogPost={blogPost} />
+        ))}
         <Box m={6} />
-        {/* {blogPostsMock.map((blogPost, index) => (
-                  <BlogPost key={index} blogPost={blogPost} />
-              ))} */}
       </Container>{" "}
     </>
   );

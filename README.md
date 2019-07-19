@@ -24,4 +24,3 @@ npm run dev
 - [ ] Add some e2e tests with cypress
 - [ ] Add some tags for google tag manager
 - [ ] Implement continuous integration
-- [ ] Implement continuous integration

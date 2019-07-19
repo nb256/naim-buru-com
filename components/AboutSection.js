@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
+import Link from "@material-ui/core/Link";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Box from "@material-ui/core/Box";
 
@@ -12,22 +13,49 @@ import Project from "./Project";
 
 const projectsmock = [
   {
+    name: "This site",
+    image: "https://naim-public.s3.amazonaws.com/naimburu.png",
+    description: "My personal portfolio",
+    codelink: "https://github.com/nb256/naim-buru-com",
+    date: new Date(2019, 7, 19).toISOString(),
+    technologies: [
+      "next.js",
+      "react",
+      "express",
+      "styled-components",
+      "material-ui",
+      "jest",
+      "enzyme"
+    ]
+  },
+  {
+    name: "3d image galery with react and three.js",
+    image: "https://naim-public.s3.amazonaws.com/threejs2.png",
+    description:
+      "Navigate through an animated 3d scene with three.js orbit controls",
+    demolink: "https://nb256-threejs-example.herokuapp.com/",
+    codelink: "https://github.com/nb256/threejs-example",
+    date: new Date(2019, 4, 23).toISOString(),
+    technologies: ["react", "react-spring", "three", "react-three-fiber"]
+  },
+  {
     name: "React-redux based kanban board application",
     image: "https://naim-public.s3.amazonaws.com/kanbanello.png",
     description:
-      "kassjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf sjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf sjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf sjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf sjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf sjdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf jdfkasjd fkasjdfkasdkfaj sdfkasdmck sadasdf as dfasf a",
-    demolink: "asdf",
-    codelink: "asdf",
-    date: new Date(1994, 10, 22).toISOString(),
-    technologies: ["react", "redux"]
-  },
-  { image: "https://naim-public.s3.amazonaws.com/threejs2.png" },
-  {}
+      "Drag and drop cards across columns. Import and export redux application state. Persist redux store to LocalStorage on page refreshes.",
+    demolink: "dmck sadasdf as dfasf jdfkasjd fkasjdfkasdkfaj sdfkasdmck sad",
+    codelink: "https://github.com/nb256/kanbanello",
+    date: new Date(2017, 7, 1).toISOString(),
+    technologies: ["react", "redux", "w3.css", "webpack", "babel"]
+  }
 ];
 const useStyles = makeStyles(theme => ({
   flexRowContainer: {
     display: "flex",
     flexDirection: "column"
+  },
+  typoCenter: {
+    textAlign: "center"
   }
 }));
 
@@ -75,12 +103,8 @@ export default function AboutSection() {
           <ArrowDownwardIcon />
         </a>
         {""}
-        {/* <LeftArrowLinkImage src={leftArrowLinks} /> */}
-        {/* <Box m={26} /> */}
-        {/* </ScrollableAnchor> */}
       </Container>
       <Container maxWidth="md" className={classes.flexRowContainer}>
-        {/* <ScrollableAnchor id={"projects"}> */}
         <ScrollableAnchor id={"projects"}>
           <Box m={6} />
         </ScrollableAnchor>
@@ -92,6 +116,12 @@ export default function AboutSection() {
         {projectsmock.map((project, index) => (
           <Project key={index} project={project} />
         ))}
+        <Typography variant="body2" className={classes.typoCenter}>
+          See more on{" "}
+          <Link href="https://github.com/nb256" target="_blank" rel="noopener">
+            my github
+          </Link>
+        </Typography>
       </Container>
       <Container maxWidth="md" className={classes.flexRowContainer}>
         <ScrollableAnchor id={"work"}>

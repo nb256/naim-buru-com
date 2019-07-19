@@ -20,6 +20,8 @@ class MyDocument extends Document {
           })
         });
       const initialProps = await Document.getInitialProps(ctx);
+      // Check if in production
+      const isProduction = process.env.NODE_ENV === "production";
       return {
         ...initialProps,
         styles: (
@@ -28,14 +30,32 @@ class MyDocument extends Document {
             {sheet.getStyleElement()}
             {flush() || null}
           </React.Fragment>
-        )
+        ),
+        isProduction
       };
     } finally {
       sheet.seal();
     }
   }
 
+  // script contents onto page
+  setGoogleTags() {
+    return {
+      __html: `
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20198152-2');
+      </script>
+      `
+    };
+  }
   render() {
+    const { isProduction } = this.props;
     return (
       <html lang="en" dir="ltr">
         <Head>
@@ -55,6 +75,17 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* We only want to add the scripts if in production */}
+          {isProduction && (
+            <Fragment>
+              <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=UA-20198152-2"
+              />
+              {/* We call the function above to inject the contents of the script tag */}
+              <script dangerouslySetInnerHTML={this.setGoogleTags()} />{" "}
+            </Fragment>
+          )}
         </body>
       </html>
     );

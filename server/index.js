@@ -9,14 +9,6 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-// force https
-function requireHTTPS(req, res, next) {
-  if (!req.secure && process.env.NODE_ENV !== "development") {
-    return res.redirect("https://" + req.get("host") + req.url);
-  }
-  next();
-}
-
 app
   .prepare()
   .then(() => {
@@ -49,6 +41,11 @@ app
         },
         server
       ).listen(port);
+
+      // force https on production
+      createHttpServer(function(req, res) {
+        return res.redirect(301, "https://" + req.get("host") + req.url);
+      }).listen(80);
     }
   })
   .catch(ex => {

@@ -14,11 +14,6 @@ app
   .then(() => {
     const server = express();
 
-    // require https on production
-    if (!dev) {
-      server.use(requireHTTPS);
-    }
-
     server.get("/", (req, res) => {
       return app.render(req, res, "/index", req.query);
     });

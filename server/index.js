@@ -39,7 +39,7 @@ app
 
       // force https on production
       createHttpServer(function(req, res) {
-        return res.redirect(301, "https://" + req.get("host") + req.url);
+        return res.redirect(301, "https://" + req.headers["host"] + req.url);
       }).listen(80);
     }
   })

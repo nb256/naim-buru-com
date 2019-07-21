@@ -56,7 +56,7 @@ export default function Menu({ open }) {
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
-            </ListItem>{" "}
+            </ListItem>
           </SocialLink>,
           "Home"
         )}
@@ -67,7 +67,7 @@ export default function Menu({ open }) {
                 <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary="Projects" />
-            </ListItem>{" "}
+            </ListItem>
           </SocialLink>,
           "Projects"
         )}
@@ -133,7 +133,7 @@ export default function Menu({ open }) {
                 <SocialLinkImage src={linkedin} />
               </ListItemIcon>
               <ListItemText primary="Linkedin" />
-            </ListItem>{" "}
+            </ListItem>
           </SocialLink>,
           "Linkedin profile"
         )}
@@ -148,7 +148,7 @@ export default function Menu({ open }) {
                 <MailIcon />
               </ListItemIcon>
               <ListItemText primary="Mail me" />
-            </ListItem>{" "}
+            </ListItem>
           </SocialLink>,
           "Send an email to me (nbur4u@gmail.com)"
         )}
@@ -163,7 +163,7 @@ export default function Menu({ open }) {
                 <FileCopyIcon />
               </ListItemIcon>
               <ListItemText primary="Resume" />
-            </ListItem>{" "}
+            </ListItem>
           </SocialLink>,
           "Resume"
         )}

@@ -86,7 +86,7 @@ export default function Project({ project }) {
   return (
     <CardContainer>
       <CardDetails>
-        <Typography component="h5" variant="h5">
+        <Typography component="h5" variant="h5" data-test="project-name">
           {project.name}
         </Typography>
         <Typography variant="body2">
@@ -95,7 +95,11 @@ export default function Project({ project }) {
         </Typography>
         <Box m={1} />
 
-        <Typography variant="subtitle1" color="textSecondary">
+        <Typography
+          variant="subtitle1"
+          color="textSecondary"
+          data-test="project-description"
+        >
           {project.description}
         </Typography>
 
@@ -103,7 +107,12 @@ export default function Project({ project }) {
 
         <div>
           {project.codelink && (
-            <CleanAnchor href={project.codelink} target="_blank" rel="noopener">
+            <CleanAnchor
+              href={project.codelink}
+              target="_blank"
+              rel="noopener"
+              data-test="project-code-link"
+            >
               <Button
                 variant="contained"
                 color="primary"
@@ -116,7 +125,12 @@ export default function Project({ project }) {
             </CleanAnchor>
           )}
           {project.demolink && (
-            <CleanAnchor href={project.demolink} target="_blank" rel="noopener">
+            <CleanAnchor
+              href={project.demolink}
+              target="_blank"
+              rel="noopener"
+              data-test="project-demo-link"
+            >
               <Button
                 variant="contained"
                 color="primary"
@@ -135,7 +149,12 @@ export default function Project({ project }) {
           {project.technologies &&
             project.technologies.map &&
             project.technologies.map((p, i) => (
-              <Chip label={p} key={i} className={classes.chip} />
+              <Chip
+                label={p}
+                key={i}
+                className={classes.chip}
+                data-test="project-technology"
+              />
             ))}
         </div>
       </CardDetails>
